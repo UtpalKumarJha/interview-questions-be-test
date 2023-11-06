@@ -31,7 +31,7 @@ export class AppService {
       messages: [
         { "role": "user", "content": prompt }
       ],
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
     });
     console.log("Entered service 2 getJobQuestions", completion);
     const responseMessages = completion.choices.map(choice => choice.message.content);
