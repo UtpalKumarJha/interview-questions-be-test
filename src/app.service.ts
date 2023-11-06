@@ -16,7 +16,7 @@ export class AppService {
       messages: [
         { "role": "user", "content": prompt }
       ],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
     });
     console.log("Entered service 2 getJobDescriptionPrompt ", completion);
     const responseMessages = completion.choices.map(choice => choice.message.content);
@@ -31,7 +31,7 @@ export class AppService {
       messages: [
         { "role": "user", "content": prompt }
       ],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
     });
     console.log("Entered service 2 getJobQuestions", completion);
     const responseMessages = completion.choices.map(choice => choice.message.content);
