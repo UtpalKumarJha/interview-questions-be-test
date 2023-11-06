@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({ apiKey: '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' });
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 @Injectable()
 export class AppService {
