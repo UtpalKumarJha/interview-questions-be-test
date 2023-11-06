@@ -12,6 +12,7 @@ export class AppController {
 
   @Post('/generate/jobDescriptionPrompt')
   async addTrip() {
+    console.log("Entered controller");
     return this.appService.getJobDescriptionPrompt();
   }
 }
