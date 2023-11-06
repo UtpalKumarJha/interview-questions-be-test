@@ -11,8 +11,16 @@ export class AppController {
   }
 
   @Post('/generate/jobDescriptionPrompt')
-  async addTrip() {
+  async generateDescription(@Body() body: any) {
     console.log("Entered controller");
-    return this.appService.getJobDescriptionPrompt();
+    console.log(body); // log the request body
+    return this.appService.getJobDescriptionPrompt(body);
+  }
+
+  @Post('/generate/questionPrompt')
+  async generateQuestions(@Body() body: any) {
+    console.log("Entered generateQuestions");
+    console.log(body); // log the request body
+    return this.appService.getJobQuestions(body);
   }
 }

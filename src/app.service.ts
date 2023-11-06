@@ -9,17 +9,33 @@ export class AppService {
     return 'Hello World!';
   }
 
-  async getJobDescriptionPrompt() {
-    console.log("Entered service");
+  async getJobDescriptionPrompt(body) {
+    const { prompt } = body;
+    console.log("Entered service prompt getJobDescriptionPrompt", body);
     const completion = await openai.chat.completions.create({
       messages: [
-        { "role": "user", "content": "React job 3 years" }
+        { "role": "user", "content": prompt }
       ],
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
     });
-    console.log("Entered service 2", completion);
+    console.log("Entered service 2 getJobDescriptionPrompt ", completion);
     const responseMessages = completion.choices.map(choice => choice.message.content);
-    console.log("Entered service 3", responseMessages);
+    console.log("Entered service 3 getJobDescriptionPrompt", responseMessages);
+    return responseMessages;
+  }
+
+  async getJobQuestions(body) {
+    const { prompt } = body;
+    console.log("Entered service prompt getJobQuestions", body);
+    const completion = await openai.chat.completions.create({
+      messages: [
+        { "role": "user", "content": prompt }
+      ],
+      model: "gpt-3.5-turbo",
+    });
+    console.log("Entered service 2 getJobQuestions", completion);
+    const responseMessages = completion.choices.map(choice => choice.message.content);
+    console.log("Entered service 3 getJobQuestions", responseMessages);
     return responseMessages;
   }
 }
